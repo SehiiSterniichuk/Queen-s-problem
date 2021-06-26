@@ -5,6 +5,7 @@ public class Chess {
 	public Chess_board_and_queens  board;
 	int mandatoryColumn;
 	int mandatoryRow;
+	int here = 0;
 	
 	public Chess(int size, int mandatoryRow, int mandatoryColumn) {
 		
@@ -14,13 +15,27 @@ public class Chess {
 		solution();
 	}
 	private void solution() {
-		board.chess_board[this.mandatoryRow][this.mandatoryColumn] = 'Q';
 		board.mark(this.mandatoryRow, this.mandatoryColumn);
-		
-//		Chess_board_and_queens temp = new Chess_board_and_queens(board.size);
-//		temp.chess_board[this.mandatoryRow][this.mandatoryColumn] = 'Q';
-//		temp.mark(this.mandatoryRow, this.mandatoryColumn);
-		
+		int start_row, start_column, counter_queens, size;
+		start_row = start_column = 0;
+		size = this.board.size;
+		do {
+			here = 0;
+			Chess_board_and_queens temp_board = new Chess_board_and_queens(size);
+			temp_board.mark(mandatoryRow, mandatoryColumn);
+			find_solution(temp_board,start_row, start_column);
+			counter_queens = temp_board.counter_queens;
+			start_column++;
+			if(start_column == size) {
+				start_column = 0;
+				start_row++;
+			}
+			if(counter_queens == size) {
+				copy_matrix(temp_board.chess_board, board.chess_board, size);
+				this.board.counter_queens = counter_queens;
+				break;
+			}
+		}while(start_row < size);
 	}
 	static void copy_matrix(char matrix_donor[][], char matrix_recepient[][], int demension) {
 		for(int i = 0; i < demension; ++i) {
@@ -33,12 +48,20 @@ public class Chess {
 		for(int i = start_row; i < board.size; ++i) {
 			for(int j = start_column; j < board.size; ++j) {
 				if(board.chess_board[i][j] == ' ') {
-					board.chess_board[i][j] = 'Q';
 					board.mark(i,j);
-					board.counter_queens++;
+					here++;
+				}
+			}
+		}
+		for(int i = 0; i < board.size; ++i) {
+			for(int j = 0; j < board.size; ++j) {
+				if(i == start_row && j == start_column) {
+					break;
+				}
+				if(board.chess_board[i][j] == ' ') {
+					board.mark(i,j);
 				}
 			}
 		}
 	}
-	
 }
