@@ -27,7 +27,7 @@ public class Chess {
 			temp_board.mark(mandatoryRow, mandatoryColumn);
 			counter_queens = temp_board.counter_queens;
 			counter_queens = temp_board.counter_queens;
-			if(start_row == 0 && start_column == 2) {
+			if(start_row == 3 && start_column == 2) {
 				here++;
 				here--;
 			}

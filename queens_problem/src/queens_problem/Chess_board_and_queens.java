@@ -28,7 +28,7 @@ public class Chess_board_and_queens {
 			chess_board[i][j] = '.';
 		for(int i = row + 1, j = column + 1; i < size && j < size; ++i, ++j)
 			chess_board[i][j] = '.';
-		for(int i = row + 1, j = column - 1; i < size && j > 0; ++i, --j) 
+		for(int i = row + 1, j = column - 1; i < size && j >= 0; ++i, --j) 
 			chess_board[i][j] = '.';
 		for(int i = row - 1, j = column + 1; i >= 0 && j < size; --i, ++j) 
 			chess_board[i][j] = '.';
