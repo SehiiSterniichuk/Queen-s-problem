@@ -17,7 +17,7 @@ public class queens_problem_solution {
 			column = scanner.nextInt();
 			Chess board = new Chess(size, row, column);
 			board.board.print();
-			System.out.println("Queens: " + board.board.counter_queens + '\n' + "Here: " + board.here);
+			System.out.println("Queens: " + board.board.counter_queens + '\n' + "Here: " + board.here + '\n' + "Here2: " + board.here2);
 			System.out.print("If you want continue press 1");
 			yes = scanner.nextByte();
 			
