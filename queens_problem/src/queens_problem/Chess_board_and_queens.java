@@ -33,7 +33,6 @@ public class Chess_board_and_queens {
 		for(int i = row - 1, j = column + 1; i >= 0 && j < size; --i, ++j) 
 			chess_board[i][j] = '.';
 		counter_queens++;
-		
 	}
 	public void print() {
 		System.out.print("\t");
