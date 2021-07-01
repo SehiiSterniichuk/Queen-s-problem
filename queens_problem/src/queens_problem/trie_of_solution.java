@@ -17,7 +17,6 @@ public class trie_of_solution {
 	}
 	public trie_of_solution(Chess_board_and_queens data) {
 		this(data, 0);
-		
 	}
 	private void make_children() {
 		boolean new_row = true; 
@@ -37,7 +36,7 @@ public class trie_of_solution {
 				}
 				new_row = false;
 			}
-			if(new_row == true && col == data.size - 1 && level < data.size - 1) {
+			if(new_row == true && col == data.size - 1 && level < data.size - 1 && level == data.counter_queens - 1) {
 				level++;
 				col = 0;
 			}

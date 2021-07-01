@@ -36,7 +36,7 @@ public class Chess_board_and_queens {
 	}
 	public void print() {
 		System.out.print("\t");
-		for(int i = 0; i < size; ++i )
+		for(int i = 0; i < size && size < 10; ++i )
 			System.out.print(i);
 		System.out.println();
 		for(int i = 0; i < size; ++i) {
